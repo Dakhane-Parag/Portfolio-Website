@@ -16,7 +16,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Github, url: 'https://github.com/Dakhane-Parag', label: 'GitHub' },
     { icon: Linkedin, url: 'www.linkedin.com/in/parag-dakhane-77a271263', label: 'LinkedIn' },
-    { icon: Mail, url: 'dakhane567@gmail.com', label: 'Email' },
+    { icon: Mail, url: 'https://mail.google.com/mail/?view=cm&fs=1&to=dakhane567@gmail.com&su=Talent%20Outreach&body=Hi%20Parag', label: 'Email' },
   ];
 
   return (
@@ -85,9 +85,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-600 dark:text-gray-400 flex items-center">
-            © {currentYear} Dakhane Parag . Made with{' '}
-            <Heart className="h-4 w-4 text-red-500 mx-1 fill-current" />
-            and lots of coffee.
+            © {currentYear} Dakhane Parag. 
           </p>
           <p className="text-gray-500 dark:text-gray-500 text-sm mt-4 md:mt-0">
             Built with React, Tailwind CSS & Supabase
