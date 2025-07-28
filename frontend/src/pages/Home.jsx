@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
+import myPicture from '../assets/pp.jpg';
+import { Typewriter } from 'react-simple-typewriter';
 
 const Home = () => {
   return (
@@ -40,7 +42,15 @@ const Home = () => {
                   transition={{ delay: 0.4 }}
                   className="text-2xl lg:text-3xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
                 >
-                  Full Stack Developer
+                  <Typewriter
+                    words={['Software Engineer', 'Full Stack Developer']}
+                    loop={true}
+                    cursor
+                    cursorStyle="|"
+                    typeSpeed={80}
+                    deleteSpeed={50}
+                    delaySpeed={1500}
+                  />
                 </motion.h2>
               </div>
               
@@ -64,13 +74,15 @@ const Home = () => {
                   to="/contact"
                   className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200 group"
                 >
-                  Get In Touch
+                  Hire Me
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
                 </Link>
+                <a href="/ParagDakhaneResume.pdf" download>
                 <button className="inline-flex items-center px-6 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:border-blue-600 hover:text-blue-600 dark:hover:border-blue-400 dark:hover:text-blue-400 transition-colors duration-200">
                   <Download className="mr-2 h-5 w-5" />
                   Download CV
                 </button>
+                </a>
               </motion.div>
 
               <motion.div
@@ -114,7 +126,7 @@ const Home = () => {
                 <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 p-1">
                   <div className="w-full h-full rounded-full bg-white dark:bg-gray-900 flex items-center justify-center">
                     <img
-                      src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400"
+                      src={myPicture}
                       alt="Profile"
                       className="w-72 h-72 lg:w-88 lg:h-88 rounded-full object-cover"
                     />
@@ -136,9 +148,9 @@ const Home = () => {
             className="grid grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {[
-              { number: '50+', label: 'Projects Completed' },
-              { number: '3+', label: 'Years Experience' },
-              { number: '25+', label: 'Happy Clients' },
+              { number: '8+', label: 'Projects Worked On' },
+              { number: '2+', label: 'Years Experience with softwares' },
+              { number: '2+', label: 'Happy Clients ' },
               { number: '15+', label: 'Technologies' },
             ].map((stat, index) => (
               <div key={index} className="text-center">
