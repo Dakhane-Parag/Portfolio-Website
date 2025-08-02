@@ -1,72 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Filter } from 'lucide-react';
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
 
-  const projects = [
-    {
-      id: 1,
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.',
-      image: 'https://images.pexels.com/photos/3184164/pexels-photo-3184164.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      category: 'fullstack',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
-    },
-    {
-      id: 2,
-      title: 'Task Management App',
-      description: 'Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-      image: 'https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['React', 'TypeScript', 'Socket.io', 'Express'],
-      category: 'frontend',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
-    },
-    {
-      id: 3,
-      title: 'Weather Dashboard',
-      description: 'Beautiful weather dashboard with location-based forecasts, interactive maps, and detailed weather analytics.',
-      image: 'https://images.pexels.com/photos/3184305/pexels-photo-3184305.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['React', 'Chart.js', 'OpenWeather API'],
-      category: 'frontend',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
-    },
-    {
-      id: 4,
-      title: 'Blog API',
-      description: 'RESTful API for a blog platform with authentication, CRUD operations, and advanced search functionality.',
-      image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['Node.js', 'Express', 'MongoDB', 'JWT'],
-      category: 'backend',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
-    },
-    {
-      id: 5,
-      title: 'Real Estate App',
-      description: 'Modern real estate platform with property listings, virtual tours, and mortgage calculator functionality.',
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['React', 'Next.js', 'Prisma', 'PostgreSQL'],
-      category: 'fullstack',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
-    },
-    {
-      id: 6,
-      title: 'Social Media Dashboard',
-      description: 'Analytics dashboard for social media management with real-time data visualization and scheduling features.',
-      image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['React', 'D3.js', 'Node.js', 'Redis'],
-      category: 'fullstack',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
-    },
-  ];
+   const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    fetch("https://vqlbxgaxsnkfmxhocaed.supabase.co/storage/v1/object/public/projects-data//projects.json?t"+ Date.now())
+      .then(res => res.json())
+      .then(data => setProjects(data))
+      .catch(err => console.error("Failed to fetch projects:", err));
+  }, []);
+  
 
   const categories = [
     { key: 'all', label: 'All Projects' },
