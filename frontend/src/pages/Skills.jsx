@@ -4,17 +4,23 @@ import { Code, Database, Globe, Smartphone, Zap, Shield } from 'lucide-react';
 
 const Skills = () => {
   const skillCategories = [
+     {
+      title: 'Programming Languages',
+      icon: Code,
+      color: 'from-red-500 to-amber-500',
+      skills: [
+        { name: 'Java', level: 85 },
+        { name: 'JavaScript (ES6+)', level: 90 },
+      ]
+    },
     {
       title: 'Frontend Development',
       icon: Code,
       color: 'from-blue-500 to-cyan-500',
       skills: [
-        { name: 'React', level: 95 },
-        { name: 'JavaScript (ES6+)', level: 90 },
-        { name: 'TypeScript', level: 85 },
+        { name: 'React', level: 85 },
         { name: 'HTML5 & CSS3', level: 95 },
         { name: 'Tailwind CSS', level: 90 },
-        { name: 'Next.js', level: 80 },
       ]
     },
     {
@@ -25,22 +31,21 @@ const Skills = () => {
         { name: 'Node.js', level: 90 },
         { name: 'Express.js', level: 85 },
         { name: 'MongoDB', level: 80 },
-        { name: 'PostgreSQL', level: 75 },
+        { name: 'MySQL', level: 75 },
         { name: 'REST APIs', level: 90 },
-        { name: 'GraphQL', level: 70 },
+        // { name: 'GraphQL', level: 70 },
       ]
     },
     {
-      title: 'DevOps & Tools',
+      title: 'Tools',
       icon: Zap,
       color: 'from-purple-500 to-pink-500',
       skills: [
         { name: 'Git & GitHub', level: 90 },
-        { name: 'Docker', level: 75 },
-        { name: 'AWS', level: 70 },
+        { name: 'Socket.io', level: 70 },
+        { name: 'Puter', level: 75 },
         { name: 'Netlify/Vercel', level: 85 },
-        { name: 'CI/CD', level: 70 },
-        { name: 'Linux', level: 75 },
+      
       ]
     },
   ];
@@ -192,12 +197,9 @@ const Skills = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { name: 'AWS Certified Developer', issuer: 'Amazon Web Services', year: '2023' },
-              { name: 'React Developer Certification', issuer: 'Meta', year: '2022' },
-              { name: 'Full Stack Web Development', issuer: 'FreeCodeCamp', year: '2021' },
-              { name: 'JavaScript Algorithms', issuer: 'FreeCodeCamp', year: '2021' },
-              { name: 'Node.js Application Development', issuer: 'MongoDB University', year: '2022' },
-              { name: 'Google Analytics Certified', issuer: 'Google', year: '2023' },
+              { name: 'React and Redux Certification', issuer: 'KG Coding Academy ', year: '2025' },
+              { name: 'Java - Basic', issuer: 'Hackerrank', year: '2024' },
+              { name: 'The Full Stack Web Bootcamp', issuer: 'Udemy', year: '2025' },
             ].map((cert, index) => (
               <motion.div
                 key={cert.name}

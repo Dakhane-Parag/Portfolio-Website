@@ -22,72 +22,74 @@ const Contact = () => {
   });
 
   const onSubmit = async (data) => {
-    setIsSubmitting(true);
-    
-    try {
-      // Save to Supabase database
-      const { error } = await supabase
-        .from('contacts')
-        .insert([{
-          name: data.name,
-          email: data.email,
-          subject: data.subject,
-          message: data.message,
-          created_at: new Date().toISOString()
-        }]);
+  setIsSubmitting(true);
 
-      if (error) throw error;
+  try {
+    // Save to Supabase
+    const { error } = await supabase
+      .from('contacts')
+      .insert([{
+        name: data.name,
+        email: data.email,
+        subject: data.subject,
+        message: data.message,
+        created_at: new Date().toISOString()
+      }]);
 
-      // Send email notification (using Supabase Edge Function)
-      const { error: emailError } = await supabase.functions.invoke('send-contact-email', {
-        body: {
-          name: data.name,
-          email: data.email,
-          subject: data.subject,
-          message: data.message,
-        }
-      });
+    if (error) throw error;
 
-      if (emailError) {
-        console.warn('Email notification failed:', emailError);
-        // Don't throw error here as the main functionality (saving to DB) worked
-      }
+    const response = await fetch('http://localhost:5000/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        subject: data.subject,
+        message: data.message,
+      }),
+    });
 
-      toast.success('Message sent successfully! I\'ll get back to you soon.');
-      reset();
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      toast.error('Failed to send message. Please try again.');
-    } finally {
-      setIsSubmitting(false);
+    if (!response.ok) {
+      throw new Error('Failed to send email');
     }
-  };
+
+    toast.success("Message sent successfully! I'll get back to you soon.");
+    reset();
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    toast.error('Failed to send message. Please try again.');
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const contactInfo = [
     {
       icon: Mail,
       title: 'Email',
-      value: 'john@example.com',
-      link: 'mailto:john@example.com'
+      value: 'dakhane567@gmail.com',
+      link: 'https://mail.google.com/mail/?view=cm&fs=1&to=dakhane567@gmail.com&su=Talent%20Outreach&body=Hi%20Parag'
     },
     {
       icon: Phone,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      value: '+91 8329361934',
+      link: '#'
     },
     {
       icon: MapPin,
       title: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Pune, Maharashtra',
       link: '#'
     }
   ];
 
   const socialLinks = [
-    { icon: Github, url: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, url: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Twitter, url: 'https://twitter.com', label: 'Twitter' },
+    { icon: Github, url: 'https://github.com/Dakhane-Parag', label: 'GitHub' },
+    { icon: Linkedin, url: 'https://www.linkedin.com/in/parag-dakhane-77a271263', label: 'LinkedIn' },
+    { icon: Twitter, url: 'https://x.com/DakhaneParag', label: 'Twitter' },
   ];
 
   return (

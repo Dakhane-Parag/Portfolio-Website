@@ -5,30 +5,26 @@ import { Award, Users, Coffee, Code2 } from 'lucide-react';
 const About = () => {
   const experiences = [
     {
-      title: 'Senior Full Stack Developer',
-      company: 'Tech Innovations Inc.',
-      period: '2022 - Present',
-      description: 'Leading development of scalable web applications using React, Node.js, and cloud technologies.'
+      title: 'Software Developer Intern',
+      company: 'Bluestock Fintech.',
+      period: 'June 2025 - August 2025',
+      description: 'Built scalable features and optimized APIs as an SDE Intern, enhancing user experience in a fast-paced fintech environment.'
     },
     {
-      title: 'Full Stack Developer',
-      company: 'Digital Solutions Co.',
-      period: '2020 - 2022',
-      description: 'Developed and maintained multiple client projects using MERN stack and modern web technologies.'
+      title: 'Freelance Frontend Developer',
+      company: 'Social 365.',
+      period: 'November 2024 - December 2025',
+      description: 'Delivered pixel-perfect frontend solutions for startups, ensuring fast performance and seamless cross-device user experience.'
     },
-    {
-      title: 'Frontend Developer',
-      company: 'Creative Agency',
-      period: '2019 - 2020',
-      description: 'Specialized in creating responsive, user-friendly interfaces with React and modern CSS frameworks.'
-    },
+  
   ];
 
   const achievements = [
-    { icon: Award, title: 'Best Developer Award', year: '2023' },
-    { icon: Users, title: '50+ Projects Delivered', year: '2023' },
+    { icon: Award, title: 'First Client Project Delivered in 7 Days', year: '2024' },
+    // { icon: Users, title: '50+ Projects Delivered', year: '2023' },
     { icon: Coffee, title: '1000+ Cups of Coffee', year: 'Lifetime' },
     { icon: Code2, title: '10k+ Lines of Code', year: '2023' },
+    { icon: Coffee, title: 'Debugged 100+ Bugs & Loved It', year: 'Lifetime' },
   ];
 
   return (
@@ -72,21 +68,16 @@ const About = () => {
                 My Journey
               </h2>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                I'm a passionate full-stack developer with over 3 years of experience in creating 
-                web applications that combine beautiful design with robust functionality. My journey 
-                started with a curiosity about how websites work, and it has evolved into a deep 
-                passion for crafting digital solutions that make a real impact.
+                I'm a full-stack developer with over a year of experience building web applications that merge elegant design with solid functionality. My journey began with curiosity about how websites work and has grown into a passion for creating impactful digital solutions using the MERN stack and modern web technologies.
               </p>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                I specialize in the MERN stack and modern web technologies, always staying up-to-date 
-                with the latest trends and best practices. When I'm not coding, you'll find me 
-                exploring new technologies, contributing to open-source projects, or mentoring 
-                aspiring developers.
+               Outside of development, I enjoy challenging my mind with strategy games and keeping my routine strong with high-intensity workouts. These hobbies don’t just help me unwind—they also sharpen my focus and discipline, which often finds its way back into my code.
+
               </p>
               <div className="grid grid-cols-2 gap-4 pt-6">
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Frontend</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">React, TypeScript, Tailwind CSS</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">React, Javascript, Tailwind CSS</p>
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Backend</h3>
